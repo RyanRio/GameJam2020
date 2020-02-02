@@ -11,7 +11,7 @@ public class HitLayerObject : MonoBehaviour
         print(direction);
         hit = Physics2D.Linecast(origin, direction);
 
-        Debug.DrawLine(origin, direction, Color.red, 100f);
+
         if(hit.collider != null)
         {
             return true;

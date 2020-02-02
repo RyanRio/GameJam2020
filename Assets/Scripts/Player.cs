@@ -22,15 +22,21 @@ public class Player : MonoBehaviour
         direction.y = Input.GetAxisRaw("Vertical");
         rb.MovePosition(rb.position + direction.normalized * Time.deltaTime * speed);
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
-        boxCollider.enabled = false;
-        RaycastHit2D hit;
-        HitLayerObject.Hit(interactable, transform.position, new Vector2(transform.position.x, transform.position.y) + new Vector2(30, 0), out hit);
-        print(hit.transform); 
-        if(hit.transform != null)
+
+        if(Input.GetKeyUp(KeyCode.E))
         {
-            Interactable comp = hit.transform.GetComponent<Interactable>();
-            comp.interact();
+            print("hit e");
+            boxCollider.enabled = false;
+            RaycastHit2D hit;
+            HitLayerObject.Hit(interactable, transform.position, new Vector2(transform.position.x, transform.position.y) + new Vector2(5, 0), out hit);
+
+            if (hit.transform != null)
+            {
+                Debug.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + new Vector2(5, 0), Color.red, 100f);
+                Interactable comp = hit.transform.GetComponent<Interactable>();
+                comp.interact();
+            }
+            boxCollider.enabled = true;
         }
-        boxCollider.enabled = true;
     }
 }
