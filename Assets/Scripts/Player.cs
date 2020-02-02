@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
         boxCollider.enabled = false;
         RaycastHit2D hit;
-        HitLayerObject.Hit<Interactable>(interactable, transform.position, new Vector2(transform.position.x, transform.position.y) + new Vector2(30, 0), out hit);
+        HitLayerObject.Hit(interactable, transform.position, new Vector2(transform.position.x, transform.position.y) + new Vector2(30, 0), out hit);
         print(hit.transform); 
         if(hit.transform != null)
         {

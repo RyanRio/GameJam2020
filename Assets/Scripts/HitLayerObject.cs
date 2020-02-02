@@ -5,7 +5,7 @@ using UnityEngine;
 public class HitLayerObject : MonoBehaviour
 {
     
-    public static bool Hit<T>(LayerMask mask, Vector2 origin, Vector2 direction, out RaycastHit2D hit)
+    public static bool Hit(LayerMask mask, Vector2 origin, Vector2 direction, out RaycastHit2D hit)
     {
         print(origin);
         print(direction);
