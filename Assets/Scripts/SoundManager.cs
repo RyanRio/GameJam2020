@@ -27,6 +27,12 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    // play one sound with no randomization
+    public void PlaySfx(AudioClip sfc) {
+        efxSource.clip = sfc;
+        efxSource.Play();
+    }
+
         // pass in any number of AudioClips with commas between them
         public void RandomizeSfx (params AudioClip[] clips)
         {
