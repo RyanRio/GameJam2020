@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,10 +13,13 @@ public class Player : MonoBehaviour
 
     public LayerMask interactable;
     private bool e = false;
+    public Sprite[] sprites;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -36,8 +40,29 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(x) > Mathf.Epsilon || Mathf.Abs(y) > Mathf.Epsilon)
         {
             print("moving");
+            if (Mathf.Abs(x) > 0)
+            {
+                y = 0;
+            }
             prevDirection.x = x;
             prevDirection.y = y;
+
+            if (x > 0)
+            {
+                spriteRenderer.sprite = sprites[0];
+            }
+            else if (x < 0)
+            {
+                spriteRenderer.sprite = sprites[1];
+            }
+            if (y > 0)
+            {
+                spriteRenderer.sprite = sprites[2];
+            }
+            else if (y < 0)
+            {
+                spriteRenderer.sprite = sprites[3];
+            }
         }
 
         rb.MovePosition(rb.position + new Vector2(x, y).normalized * Time.deltaTime * speed);
