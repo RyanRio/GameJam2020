@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,5 +21,14 @@ public class Player : MonoBehaviour
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
         rb.MovePosition(rb.position + direction.normalized * Time.deltaTime * speed);
+
+        RaycastHit2D hit;
+        HitLayerObject.Hit<Interactable>(LayerMask.NameToLayer("Interactable"), transform.position, new Vector2(1, 0), out hit);
+
+        if(hit.transform != null)
+        {
+            Interactable comp = hit.transform.GetComponent<Interactable>();
+            comp.interact();
+        }
     }
 }
