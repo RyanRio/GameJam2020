@@ -21,5 +21,14 @@ public class Player : MonoBehaviour
         direction.x = Input.GetAxisRaw("horizontal");
         direction.y = Input.GetAxisRaw("vertical");
         rb.MovePosition(rb.position + direction.normalized * Time.deltaTime * speed);
+
+        RaycastHit2D hit;
+        HitLayerObject.Hit<Interactable>(LayerMask.NameToLayer("Interactable"), transform.position, new Vector2(1, 0), out hit);
+
+        if(hit.transform != null)
+        {
+            Interactable comp = hit.transform.GetComponent<Interactable>();
+            comp.interact();
+        }
     }
 }
