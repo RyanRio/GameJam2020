@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Boundaries
+    uniqueID: 1048399271
+    locked: 0
+  - name: Background
+    uniqueID: 324063267
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

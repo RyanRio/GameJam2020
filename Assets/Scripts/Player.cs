@@ -18,8 +18,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction.x = Input.GetAxisRaw("horizontal");
-        direction.y = Input.GetAxisRaw("vertical");
-        rb.MovePosition(rb.position + direction.normalized * Time.deltaTime * speed);
+        direction.x = Input.GetAxisRaw("Horizontal");
+        direction.y = Input.GetAxisRaw("Vertical");
+        rb.MovePosition(rb.position + direction.normalized * Time.deltaTime * Mathf.Epsilon);
     }
 }
