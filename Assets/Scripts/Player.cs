@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectsWithTag("CollideWall");
+        
     }
 
     // Update is called once per frame
@@ -20,6 +20,6 @@ public class Player : MonoBehaviour
     {
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
-        rb.MovePosition(rb.position + direction.normalized * Time.deltaTime * Mathf.Epsilon);
+        rb.MovePosition(rb.position + direction.normalized * Time.deltaTime * speed);
     }
 }
