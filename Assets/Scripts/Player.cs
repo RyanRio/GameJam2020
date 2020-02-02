@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject.FindGameObjectsWithTag("CollideWall");
     }
 
     // Update is called once per frame
